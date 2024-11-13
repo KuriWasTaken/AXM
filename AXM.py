@@ -49,8 +49,18 @@ def interpret(insts, Reg):
             fName = instruction[1]
             a += 1
             f = []
-            while a < len(insts) and insts[a].strip() != "end":
-                f.append(insts[a].strip())
+            nested_level = 1 
+            
+            while a < len(insts) and nested_level > 0:
+                current_inst = insts[a].strip()
+                if current_inst.startswith("we") or current_inst.startswith("wne") or current_inst.startswith("fn"):
+                    nested_level += 1
+                elif current_inst == "end":
+                    nested_level -= 1
+                    if nested_level == 0:
+                        break
+                if nested_level > 0:
+                    f.append(current_inst)
                 a += 1
             functions.append([fName, f])
         elif op == "make": #make [DATA] [REGPOS]
@@ -158,6 +168,8 @@ def interpret(insts, Reg):
                 if i[0] == instruction[1]:
                     interpret(i[1], Reg)
                     break
+        elif op == "len": #len [REG1] [REGD2], len [REG1] [DESTINATION]
+            Reg[int(instruction[2])] = len( Reg[int(instruction[1])])
         elif op == "purge": #purge [REGPOS]
             Reg[int(instruction[1])] = None
         elif op == "ji": #ji [REG1] [REG2] [LINE]
@@ -173,17 +185,43 @@ def interpret(insts, Reg):
         elif op == "we": #we [REG1] [REG2]. we = while equal
             a += 1
             f = []
-            while a < len(insts) and insts[a].strip() != "end":
-                f.append(insts[a].strip())
+            nested_level = 1 
+            
+            while a < len(insts) and nested_level > 0:
+                current_inst = insts[a].strip()
+                if current_inst.startswith("we") or current_inst.startswith("wne") or current_inst.startswith("fn"):
+                    nested_level += 1
+                elif current_inst == "end":
+                    nested_level -= 1
+                    if nested_level == 0:
+                        break
+                if nested_level > 0:
+                    f.append(current_inst)
                 a += 1
+            
             while Reg[int(instruction[1])] == Reg[int(instruction[2])]:
                 interpret(f, Reg)
-        elif op == "wne": #we [REG1] [REG2]. wne = while not equal
+        elif op == "wne":  # 'wne' = while not equal
             a += 1
             f = []
-            while a < len(insts) and insts[a].strip() != "end":
-                f.append(insts[a].strip())
+            nested_level = 1 
+            
+            while a < len(insts) and nested_level > 0:
+                current_inst = insts[a].strip()
+                
+                if current_inst.startswith("wne") or current_inst.startswith("we") or current_inst.startswith("fn"):
+                    nested_level += 1
+                elif current_inst == "end":
+                    nested_level -= 1
+                    
+                    if nested_level == 0:
+                        break
+                
+                if nested_level > 0:
+                    f.append(current_inst)
+                
                 a += 1
+            
             while Reg[int(instruction[1])] != Reg[int(instruction[2])]:
                 interpret(f, Reg)
         elif op == "jmp": #jmp [LINE]
