@@ -43,6 +43,11 @@ To acces an arrays data we use "->" like this:
 out [REGINDEX]->[ARRAYINDEX]
 ```
 
+Maths:
+AXM has 4 different maths operations and all work the same, they are "add"(Addition) ", "sub"(Subtraction), "mul"(Multiplication), "div"(division). They do the math operation to Reg1 and Reg2 and put the result in Reg3. Example:
+```
+add [REG 1] [REG 2] [REG 3]
+```
 
 Functions:
 
