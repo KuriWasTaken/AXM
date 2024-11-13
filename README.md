@@ -99,6 +99,15 @@ Jump If, this is a simple command that jumps past the specified amount of lines 
 ```
 ji 0 1 2
 ```
+To move something in the registrey we can use "mov", mov will copy the whatever is in REG1 to REG2 and delete REG1. Example
+```
+mov 0 1
+```
+To copy something in the registrey we can use "cpy", cpy will copy the whatever is in REG1 to REG2. Example
+```
+cpy 0 1
+```
+
 The previous example checks if reg 0 is the same as reg 1 and if they are skips forward 2 lines.
 
 Jump if not is the exact same but with the keyword "jin"
