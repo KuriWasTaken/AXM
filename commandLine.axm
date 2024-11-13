@@ -1,0 +1,21 @@
+allocReg 6
+make 1 0
+make "AXM > " 1
+
+make "exit()" 2
+make "info" 3
+
+we 0 0
+out 1
+get 4
+jin 4 2 2 #exit
+exit
+jin 4 3 6 #info
+make "AXM v1.0 c AXM 2024\n" 5
+out 5
+make "This console allows you to run and directly interpret instructions\n" 5
+out 5
+jmp 2
+interpret 4
+
+end
