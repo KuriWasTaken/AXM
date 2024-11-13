@@ -7,7 +7,7 @@ AXM can also be slow depenfing on your usecase, as i previously stated, I have p
 
 Now for a "tutorial"
 
-To even get started you need to allocate registrey, this can be increased at any time during the program aswell. To allocate memory we use "allocReg", allocReg adds to the size so if you do it with 10 and then 15 the registrey size will become 15.
+To even get started you need to allocate registrey, this can be increased at any time during the program aswell. To allocate memory we use "allocReg", allocReg adds to the size so if you do it with 10 and then 5 the registrey size will become 15.
 ```
 allocReg 10
 ```
