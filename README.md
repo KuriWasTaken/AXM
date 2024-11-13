@@ -3,6 +3,8 @@ AXM is a simple "assembly like" interpreter written in python, I have plans on c
 Currently it is really hard to work with since it is inspired by Assembly but dumbed down.
 AXM can also be slow depenfing on your usecase, as i previously stated, I have plans on converting it to c++ which will imrpove performance
 
+Please note that AXM is a project I do for fun and not anything to serious
+
 <h1>Documentation</h1>
 
 To even get started you need to allocate registrey, this can be increased at any time during the program aswell. To allocate memory we use "allocReg", allocReg adds to the size so if you do it with 10 and then 5 the registrey size will become 15.
