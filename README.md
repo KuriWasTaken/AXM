@@ -1,5 +1,5 @@
 # AXM
-AXM Interpreter
+<h1>AXM Interpreter</h1>
 
 AXM is a simple "assembly like" interpreter written in python, I have plans on converting to c++ at a later date but currently it is just a proof of concept.
 Currently it is really hard to work with since it is inspired by Assembly but dumbed down.
@@ -107,3 +107,16 @@ and ofcourse to prematureley exit the script we use "exit"
 
 
 Keep in mind that this is a work in progress and is currently very rough with bad error handeling. Please report any bugs or problems that may occur. Also I will convert this to c++ but even then it is a tricky language to work with
+
+<h1>To Do</h1>
+```
+Add for loops
+Better commeting in source
+Better error handeling
+```
+
+<h1>Future Plans</h1>
+```
+Convert to c++
+MAYBE make a compiler
+```
