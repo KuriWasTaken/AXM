@@ -1,0 +1,4 @@
+allocReg 10
+make [0,0] 0
+append "HelloWorld" 0
+out 0->2
