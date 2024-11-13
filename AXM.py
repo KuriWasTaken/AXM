@@ -242,6 +242,11 @@ def interpret(insts, Reg):
         elif op == "interpret":
             f = [Reg[int(instruction[1])]]
             interpret(f, sideReg)
+        elif op == "mov": #mov [REG1] [REG2]
+            Reg[int(instruction[2])] = Reg[int(instruction[1])]
+            Reg[int(instruction[1])] = None
+        elif op == "cpy": #cpy [REG1] [REG2]
+            Reg[int(instruction[2])] = Reg[int(instruction[1])]
         a += 1
 
 interpret(script, mainReg)
